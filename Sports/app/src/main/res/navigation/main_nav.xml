@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/play">
+
+
+    <include app:graph="@navigation/host_game_nav" />
+    <include app:graph="@navigation/event_info_nav" />
+    <include app:graph="@navigation/profile_nav" />
+
+
+    <fragment
+        android:id="@+id/play"
+        android:name="com.hfad.sports.ui.play.PlayFragment"
+        android:label="Play"
+        tools:layout="@layout/fragment_play" >
+        <action
+            android:id="@+id/action_play_to_event_info_nav"
+            app:destination="@id/event_info_nav" />
+        <action
+            android:id="@+id/action_play_to_inbox"
+            app:destination="@id/inbox" />
+        <action
+            android:id="@+id/action_play_to_search"
+            app:destination="@id/search" />
+        <action
+            android:id="@+id/action_play_to_sport_list"
+            app:destination="@id/sport_list" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/schedule"
+        android:name="com.hfad.sports.ui.schedule.ScheduleFragment"
+        android:label="Schedule"
+        tools:layout="@layout/fragment_schedule">
+        <action
+            android:id="@+id/action_schedule_to_host_game_nav"
+            app:destination="@id/host_game_nav" />
+        <action
+            android:id="@+id/action_schedule_to_event_info"
+            app:destination="@id/event_info_nav" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/search"
+        android:name="com.hfad.sports.ui.search.SearchFragment"
+        android:label="Search Players"
+        tools:layout="@layout/fragment_search" >
+
+        <action
+            android:id="@+id/action_search_to_profile_nav"
+            app:destination="@id/profile_nav" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/inbox"
+        android:name="com.hfad.sports.ui.chat.InboxFragment"
+        android:label="Inbox"
+        tools:layout="@layout/fragment_inbox">
+        <action
+            android:id="@+id/action_inbox_to_chat"
+            app:destination="@id/chat" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chat"
+        android:name="com.hfad.sports.ui.chat.ChatFragment"
+        android:label="ChatFragment"
+        tools:layout="@layout/fragment_chat"  >
+
+        <argument
+            android:name="userPage"
+            app:argType="com.hfad.sports.vo.UserPage"
+            app:nullable="false"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/sport_list"
+        android:name="com.hfad.sports.ui.host.SportListFragment"
+        android:label="Select A Sport"
+        tools:layout="@layout/fragment_sport_list"/>
+
+</navigation>

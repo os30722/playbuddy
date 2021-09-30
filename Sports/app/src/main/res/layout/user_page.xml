@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+
+        <variable
+            name="user"
+            type="com.hfad.sports.vo.UserPage"
+            />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="7dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            app:shapeAppearanceOverlay="@style/circularImage"
+            app:imgSrc="@{user.profilePic}"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Oishik Sen Gupta"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:text="@{user.firstName + ` ` + user.lastName}"
+            app:layout_constraintStart_toEndOf="@+id/profile_pic"
+            app:layout_constraintTop_toTopOf="@id/profile_pic" />
+
+
+        <TextView
+            android:id="@+id/host_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="(Host)"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            />
+
+        <ImageButton
+            android:id="@+id/options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_more_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profile_pic"
+            app:layout_constraintBottom_toBottomOf="@id/profile_pic"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

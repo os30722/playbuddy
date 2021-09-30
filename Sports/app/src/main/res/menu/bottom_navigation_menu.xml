@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/play"
+        android:icon="@drawable/icon_join_game"
+        android:title="Play" />
+
+    <item
+        android:id="@+id/inbox"
+        android:icon="@drawable/icon_chat"
+        android:title="Chats"
+
+        />
+
+    <item
+        android:id="@+id/schedule"
+        android:icon="@drawable/icon_schedule"
+        android:title="Schedule"
+        />
+
+    <item
+        android:id="@+id/profile_nav"
+        android:icon="@drawable/icon_profile"
+        android:title="Profile"
+
+        />
+</menu>

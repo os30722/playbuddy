@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/host_game_nav"
+    app:startDestination="@id/first_host_game"
+    >
+
+    <fragment
+        android:id="@+id/first_host_game"
+        android:name="com.hfad.sports.ui.host.FirstHostGameFragment"
+        android:label="Host Game"
+        tools:layout="@layout/fragment_first_host_game" >
+        <action
+            android:id="@+id/action_first_host_game_to_sportList"
+            app:destination="@id/sport_list" />
+        <action
+            android:id="@+id/action_first_host_game_to_second_host_game"
+            app:destination="@id/second_host_game" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sport_list"
+        android:name="com.hfad.sports.ui.host.SportListFragment"
+        android:label="Select A Sport"
+        tools:layout="@layout/fragment_sport_list" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/map_fragment"
+        android:name="com.hfad.sports.ui.host.MapFragment"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/second_host_game"
+        android:name="com.hfad.sports.ui.host.SecondHostGameFragment"
+        tools:layout="@layout/fragment_second_host_game" >
+        <action
+            android:id="@+id/action_second_host_game_to_map_fragment"
+            app:destination="@id/map_fragment" />
+        <action
+            android:id="@+id/action_second_host_game_to_first_host_game"
+            app:popUpTo="@id/first_host_game"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+</navigation>

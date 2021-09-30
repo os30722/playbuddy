@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="event"
+            type="com.hfad.sports.ui.host.HostGameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.host.SecondHostGameFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/select_location"
+            style="@style/OutlinedInputBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            android:layout_margin="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:focusableInTouchMode="false"
+                android:hint="Pick Location"
+                android:text="@{event.searchLocation}"
+                 />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/instructions"
+            style="@style/OutlinedInputBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/select_location"
+            app:layout_constraintStart_toStartOf="@+id/select_location"
+            app:layout_constraintTop_toBottomOf="@+id/select_location">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Information / Rules"
+                android:text="@={event.instruction}"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/nav_done"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/icon_nav_done"
+            app:backgroundTint="@color/colorPrimary"
+            android:onClick="@{() -> event.onHostEvent()}"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/instructions"
+            app:layout_constraintStart_toStartOf="@+id/instructions"
+            app:maxImageSize="30dp"
+            app:tint="@color/white" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/nav_done"
+            app:layout_constraintEnd_toEndOf="@+id/nav_done"
+            app:layout_constraintTop_toTopOf="@+id/nav_done"
+            app:layout_constraintStart_toStartOf="@+id/nav_done"/>
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

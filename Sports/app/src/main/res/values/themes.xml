@@ -1,0 +1,100 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">#484948</item>
+        <item name="colorOnError">@color/black</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+
+    <!-- For Themes -->
+
+    <!-- Input Box -->
+    <style name="OutlinedInputBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/inputBox</item>
+        <item name="hintTextColor">@color/inputBox</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeErrorColor">@color/error</item>
+        <item name="errorTextColor">@color/error</item>
+        <item name="errorIconDrawable">@null</item>
+
+    </style>
+
+    <!-- Toolbar -->
+    <style name="ToolbarStyle" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <!-- For Collapsing Toolbar -->
+    <style name="ExpandedAppBar" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">40sp</item>
+
+    </style>
+
+    <!-- Gender Button -->
+    <style name="GenderButton">
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+
+    <!-- Circular Button -->
+    <style name="ShapeAppearanceOverlay.MyApp.Button.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+
+    <!-- Bottom Navigation Bar -->
+
+    <style name="BottomNavBar" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Date Picker Style-->
+    <style name="Widget.AppTheme.MaterialDatePicker" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+    <item name="materialCalendarHeaderToggleButton">@style/Widget.AppTheme.MaterialCalendar.HeaderToggleButton</item>
+    </style>
+
+    <!-- time Picker Style-->
+    <style name="Widget.AppTheme.MaterialCalendar.HeaderToggleButton" parent="Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton">
+    <item name="android:visibility">gone</item>
+    </style>
+
+    <!-- Event Detail Label-->
+    <style name="EventDetailLabelText">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+
+    <!-- Event Detail Info -->
+    <style name="EventDetailInfoText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+    <!-- For Circular Image-->
+    <style name="circularImage" >
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- For Chat Input Box -->
+    <style name="ChatInputBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/colorPrimary</item>
+        <item name="boxStrokeWidth">0.1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+</resources>

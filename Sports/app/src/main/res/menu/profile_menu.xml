@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/friend_request"
+        android:title="Friend Requests"
+        android:icon="@drawable/icon_friend_request"
+        app:showAsAction="always"
+        />
+
+</menu>

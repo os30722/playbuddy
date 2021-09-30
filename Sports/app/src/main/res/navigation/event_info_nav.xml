@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/event_info_nav"
+    app:startDestination="@id/event_info">
+
+
+    <fragment
+        android:id="@+id/event_info"
+        android:name="com.hfad.sports.ui.detail.EventInfoFragment"
+        tools:layout="@layout/fragment_event_info">
+
+        <argument
+            android:name="eventPage"
+            android:defaultValue="@null"
+            app:argType="com.hfad.sports.vo.EventPage"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_event_info_to_join_request"
+            app:destination="@id/join_request" />
+        <action
+            android:id="@+id/action_event_info_to_chat"
+            app:destination="@id/chat" />
+        <action
+            android:id="@+id/action_event_info_to_players_joined"
+            app:destination="@id/player_joined" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/join_request"
+        android:name="com.hfad.sports.ui.join.JoinRequestFragment"
+        android:label="Join Requests"
+        tools:layout="@layout/fragment_join_request">
+        <argument
+            android:name="eventId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+
+        android:id="@+id/chat"
+        android:name="com.hfad.sports.ui.chat.ChatFragment"
+        android:label="ChatFragment"
+        tools:layout="@layout/fragment_chat">
+
+        <argument
+            android:name="userPage"
+            app:argType="com.hfad.sports.vo.UserPage"
+            app:nullable="false" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/player_joined"
+        android:name="com.hfad.sports.ui.join.PlayersJoined"
+        android:label="Players Joined"
+        tools:layout="@layout/fragment_player_joined">
+
+        <argument
+            android:name="eventId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+
+        <argument
+            android:name="hostId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_player_joined_to_player_joined_bottom_sheet"
+            app:destination="@id/player_joined_bottom_sheet" />
+
+    </fragment>
+    <dialog
+        android:id="@+id/player_joined_bottom_sheet"
+        android:name="com.hfad.sports.ui.join.PlayerJoinedBottomSheetFragment"
+        android:label="fragment_player_joined_bottom_sheet"
+        tools:layout="@layout/fragment_player_joined_bottom_sheet" >
+
+        <argument
+            android:name="playerId"
+            app:argType="integer"
+            android:defaultValue="-1"
+            />
+
+        <argument
+            android:name="eventId"
+            app:argType="integer"
+            android:defaultValue="-1"
+            />
+
+          </dialog>
+
+
+</navigation>

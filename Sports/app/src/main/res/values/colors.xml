@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Color Settings for Themes -->
+    <color name="colorPrimary">#f57c00</color>
+    <color name="inputBox">#03a9f4</color>
+    <color name="error">#FAFD3706</color>
+
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Grey700">#616161</color>
+
+    <color name="senderBubble">#E8E7E7</color>
+</resources>

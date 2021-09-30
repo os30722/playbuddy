@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/auth_nav"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/login">
+
+    <fragment
+        tools:layout="@layout/fragment_login"
+        android:id="@+id/login"
+        android:name="com.hfad.sports.ui.auth.LoginFragment"
+        android:label="LoginFragment" >
+
+        <action
+            android:id="@+id/action_login_to_signUpGraph"
+            app:destination="@id/sign_up_graph" />
+    </fragment>
+
+    <navigation android:id="@+id/sign_up_graph" app:startDestination="@id/register" >
+    <fragment
+        android:id="@+id/register"
+        android:name="com.hfad.sports.ui.auth.SignUpUserFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_signup_user" >
+        <action
+            android:id="@+id/action_register_to_account"
+            app:destination="@id/account" />
+    </fragment>
+    <fragment
+        android:id="@+id/account"
+        android:name="com.hfad.sports.ui.auth.AccountFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_account"
+       />
+
+    </navigation>
+
+
+</navigation>

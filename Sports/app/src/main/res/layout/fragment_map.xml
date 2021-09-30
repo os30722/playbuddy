@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.hfad.sports.ui.host.HostGameViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.host.MapFragment">
+
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/search_location"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:background="@drawable/search_bar"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:elevation="5dp"
+            android:hint="Pick a location"
+            android:text="@={viewModel.searchLocation}"
+            android:layout_marginHorizontal="15dp"
+            android:imeOptions="actionSearch"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/set_location"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="20dp"
+            android:text="SELECT LOCATION"
+            app:layout_constraintBottom_toBottomOf="@+id/map_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/current_location"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"
+            android:src="@drawable/icon_my_location"
+            android:tint="@color/colorPrimary"
+            android:layout_marginBottom="40dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/set_location"
+            app:layout_constraintEnd_toEndOf="@+id/set_location" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

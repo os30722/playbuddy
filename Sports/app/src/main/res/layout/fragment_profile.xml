@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.hfad.sports.util.TokenToolkit" />
+
+        <variable
+            name="profile"
+            type="com.hfad.sports.vo.UserProfile" />
+
+        <variable
+            name="model"
+            type="com.hfad.sports.ui.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:imgSrc="@{profile.user.profilePic}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circularImage" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{profile.user.firstName + ` ` + profile.user.lastName}"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_pic"
+            tools:text="Oishik Sen Gupta" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/events"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/friends"
+            app:layout_constraintEnd_toStartOf="@+id/friends"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/friends">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{`` + profile.noEvents}"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                tools:text="178" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Events" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/friends"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toStartOf="@+id/reputation"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/events"
+            app:layout_constraintTop_toBottomOf="@+id/name">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{`` + profile.friends}"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                tools:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Friends" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/reputation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/friends"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/friends"
+            app:layout_constraintTop_toTopOf="@+id/friends">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{`` + profile.reputation}"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                tools:text="0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Reputation" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/friend_button"
+            android:text="Add Friend"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:layout_constraintTop_toBottomOf="@id/friends"
+            android:layout_width="match_parent"
+            app:friends="@{model.friendStatus}"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="false"
+            android:visibility="@{TokenToolkit.getUid() != profile.user.userId ? View.VISIBLE : View.GONE}"
+            app:strokeColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

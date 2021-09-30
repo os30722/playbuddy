@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_nav"
+    app:startDestination="@id/profile">
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.hfad.sports.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+
+        <argument
+            android:name="user"
+            android:defaultValue="@null"
+            app:argType="com.hfad.sports.vo.UserPage"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_profile_to_friend_request"
+            app:destination="@id/friend_request" />
+        <action
+            android:id="@+id/action_profile_to_user_friends"
+            app:destination="@id/user_friends" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/friend_request"
+        android:name="com.hfad.sports.ui.friend.FriendRequestFragment"
+        android:label="Friend Requests"
+        tools:layout="@layout/fragment_friend_request" />
+
+    <fragment
+        android:id="@+id/user_friends"
+        android:name="com.hfad.sports.ui.friend.UserFriendsFragment"
+        android:label="Friends"
+        tools:layout="@layout/fragment_user_friends">
+
+        <argument
+            android:name="userId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_user_friends_to_user_friends_bottom_sheet"
+            app:destination="@id/user_friends_bottom_sheet" />
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/user_friends_bottom_sheet"
+        android:name="com.hfad.sports.ui.friend.UserFriendsBottomSheetFragment"
+        android:label="UserFriendsBottomSheetFragment"
+        tools:layout="@layout/fragment_user_friends_bottom_sheet">
+        <argument
+            android:name="userId"
+            android:defaultValue="-1"
+            app:argType="integer"
+            />
+
+    </dialog>
+</navigation>
